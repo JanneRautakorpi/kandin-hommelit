@@ -2,19 +2,21 @@ import argparse
 from math import log2
 
 def main():
-    print("This script assumes you use:")
-    print("- 52 letters (English alphabet in lower and caps)")
-    print("- numbers from 0 to 9")
-    print()
-
     parser = argparse.ArgumentParser()
-    parser.add_argument("password", type=str, help="Password to be checked.")
+    parser.add_argument("--password", type=str, help="Password to be checked.", required=True)
+    parser.add_argument("--length", type=int, help="Required length for password.", required=False)
+    parser.add_argument("--charset", type=int, help="Character space", required=False)
+
     args = parser.parse_args()
     
     passwd = args.password
     length = len(passwd)
-    entropy = calculateEntropy(8, (26 + 26 + 10 + 32))
-    print(entropy)
+    
+    reqLength = args.length
+    charSpace = args.charset
+
+    entropy = calculateEntropy(reqLength, charSpace) # approx. 104 bits
+
     containsNumber = containNumber(passwd)
     containsLowerCase = containLowerCase(passwd)
     containsCapital = containCapital(passwd)
@@ -30,11 +32,14 @@ def containLowerCase(password):
 
 def calculateEntropy(L, R):
     '''
-    Calculates entropy.
+    Calculates entropy. Bigger == better
 
         Parameters:
             L (int): the required length for the password
             R (int): possible characters
+        
+        Returns:
+            E (float): entropy in bits.
     '''
 
     E = log2(R**L)

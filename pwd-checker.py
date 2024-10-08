@@ -30,8 +30,6 @@ def main():
     containsLowerCase = containLowerCase(passwd)
     containsCapital = containCapital(passwd)
 
-
-
 def containCapital(password):
     return any(i.isupper() for i in password)
 

@@ -1,5 +1,4 @@
 import argparse
-import re
 from math import log2
 
 '''
@@ -29,7 +28,7 @@ def main():
     containsLowerCase = containLowerCase(passwd)
     containsCapital = containCapital(passwd)
 
-    
+
 
 def containCapital(password):
     return any(i.isupper() for i in password)

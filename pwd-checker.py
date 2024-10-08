@@ -7,7 +7,7 @@ def main():
     
     passwd = args.password
     length = len(passwd)
-    print(len)
+    print(length)
 
 
 if __name__=='__main__':

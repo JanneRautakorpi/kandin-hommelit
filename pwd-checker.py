@@ -13,6 +13,7 @@ def main():
     
     passwd = args.password
     length = len(passwd)
+    
 
 def calculateEntropy(L, R):
     '''

@@ -3,7 +3,7 @@ from math import log2
 
 def main():
     print("This script assumes you use:")
-    print("- 26 letters (English alphabet)")
+    print("- 52 letters (English alphabet in lower and caps)")
     print("- numbers from 0 to 9")
     print()
 
@@ -13,7 +13,8 @@ def main():
     
     passwd = args.password
     length = len(passwd)
-    
+    entropy = calculateEntropy(8, (26+26+10))
+    print(entropy)
 
 def calculateEntropy(L, R):
     '''

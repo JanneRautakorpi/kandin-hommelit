@@ -1,5 +1,15 @@
 import argparse
+import re
 from math import log2
+
+'''
+For now, we will use global constants for character counts. 
+TO DO: change it to be asked form the user as an argument.
+'''
+CAPITAL_LETTERS = 26                                        # Capital letters in English alphabet
+LOWER_CASE_LETTERS = 26                                     # Lower case letters in English alphabet
+TOTAL_LETTERS = CAPITAL_LETTERS + LOWER_CASE_LETTERS        # self-explanatory :D
+NUMBERS = 10                                                # integers from 0 to 9
 
 def main():
     print("This script assumes you use:")
@@ -13,8 +23,22 @@ def main():
     
     passwd = args.password
     length = len(passwd)
-    entropy = calculateEntropy(8, (26+26+10))
-    print(entropy)
+    entropy = calculateEntropy
+
+    containsNumber = containNumber(passwd)
+    containsLowerCase = containLowerCase(passwd)
+    containsCapital = containCapital(passwd)
+
+    
+
+def containCapital(password):
+    return any(i.isupper() for i in password)
+
+def containNumber(password):
+    return any(i.isdigit() for i in password)
+
+def containLowerCase(password):
+    return any(c.islower() for c in password)
 
 def calculateEntropy(L, R):
     '''

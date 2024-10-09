@@ -4,8 +4,8 @@ from math import log2
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--password", type=str, help="Password to be checked.", required=True)
-    parser.add_argument("--length", type=int, help="Required length for password.", required=False)
-    parser.add_argument("--charset", type=int, help="Character space", required=False)
+    parser.add_argument("--length", type=int, help="Required length for password.", required=True)
+    parser.add_argument("--charset", type=int, help="Character space", required=True)
 
     args = parser.parse_args()
     
@@ -15,8 +15,8 @@ def main():
     reqLength = args.length
     charSpace = args.charset
 
-    entropy = calculateEntropy(reqLength, charSpace) # approx. 104 bits
-
+    entropy = calculateEntropy(reqLength, charSpace) # approx. 104 bits in charset size of 92, required length of 16
+    print(entropy)
     containsNumber = containNumber(passwd)
     containsLowerCase = containLowerCase(passwd)
     containsCapital = containCapital(passwd)

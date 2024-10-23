@@ -10,7 +10,7 @@ def main():
     lowercase = 'abcdefghijklmnopqrstuvwxyz'
     uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
     digits = '0123456789'
-    specials = '!"#€%&/()=?+\''
+    specials = '!"#€%&/()=?+\',.-_<>;:'
 
     use_lowercase = input("Include lowercase letters? (y/n): ").lower() == 'y'
     use_uppercase = input("Include uppercase letters? (y/n): ").lower() == 'y'

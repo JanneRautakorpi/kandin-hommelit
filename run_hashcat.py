@@ -1,0 +1,23 @@
+import subprocess
+import time
+
+def run_hashcat(hash_type, hash_file, wordlist, timeout):
+    try:
+        result = subprocess.run(
+            ["hashcat", "-m", str(hash_type), "-a", "0", "-r", "leetspeak.rule", hash_file, wordlist],
+            timeout=timeout
+        )
+    except subprocess.TimeoutExpired:
+        print("Hashcat timed out, moving to the next hash.")
+        return None  # Or any other appropriate action
+
+hash_file = "hashlist.hash"
+wordlist = "passlist.txt"
+timeout = 90  # seconds
+hash_type = 0  # Replace with your specific hash type
+
+with open(hash_file, "r") as f:
+    for line in f:
+        hash_to_crack = line.strip()
+        run_hashcat(hash_type, hash_to_crack, wordlist, timeout)
+

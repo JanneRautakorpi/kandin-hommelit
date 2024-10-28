@@ -1,3 +1,6 @@
+# run with python3 run_hashcat.py 
+# change hash_file and wordlist to your
+
 import subprocess
 import time
 

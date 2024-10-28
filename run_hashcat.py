@@ -7,7 +7,7 @@ import time
 def run_hashcat(hash_type, hash_file, wordlist, timeout):
     try:
         result = subprocess.run(
-            ["hashcat", "-m", str(hash_type), "-a", "0", "-r", "leetspeak.rule", hash_file, wordlist],
+            ["hashcat", "-m", str(hash_type), "-a", "0", "-r", "extended-leet.rule", hash_file, wordlist],
             timeout=timeout
         )
     except subprocess.TimeoutExpired:

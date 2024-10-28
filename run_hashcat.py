@@ -9,12 +9,12 @@ def run_hashcat(hash_type, hash_file, wordlist, timeout):
         )
     except subprocess.TimeoutExpired:
         print("Hashcat timed out, moving to the next hash.")
-        return None  # Or any other appropriate action
+        return None  # Something unexpected happened :D
 
 hash_file = "hashlist.hash"
 wordlist = "passlist.txt"
 timeout = 90  # seconds
-hash_type = 0  # Replace with your specific hash type
+hash_type = 0  # md5
 
 with open(hash_file, "r") as f:
     for line in f:

@@ -29,7 +29,7 @@ def main():
     charSpace = len(charset)
     password = generate_password(length, charset)
     
-    print(f"Entropy is: {log2(charSpace**length)}")
+    #print(f"Entropy is: {log2(charSpace**length)}")
     print(f"Generated password is: {password}")
 
 if __name__ == "__main__":

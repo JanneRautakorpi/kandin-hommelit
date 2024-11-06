@@ -14,9 +14,9 @@ def run_hashcat(hash_type, hash_file, wordlist, timeout):
         print("Hashcat timed out, moving to the next hash.")
         return None  # Something unexpected happened :D
 
-hash_file = "hashlist.hash"
+hash_file = "100md5salasanat.txt"
 wordlist = "passlist.txt"
-timeout = 90  # seconds
+timeout = 500  # seconds
 hash_type = 0  # md5
 
 with open(hash_file, "r") as f:

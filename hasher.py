@@ -1,7 +1,7 @@
 import hashlib
 
 
-def md5Hasher(text, output_filename="hashes.txt"):
+def md5Hasher(text, output_filename="AllCharHASH.txt"):
     md5 = hashlib.md5()
     md5.update(text.encode('utf-8'))
     md5_hash = md5.hexdigest()
@@ -20,4 +20,4 @@ def getText(input_filename):
     except IOError:
         print(f"Tiedoston '{input_filename}' lukemisessa tapahtui virhe.")
 
-getText("numbers.txt")
+getText("AllChar.txt")

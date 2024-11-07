@@ -26,11 +26,15 @@ def main():
     if use_specials:
         charset += specials
     
-    charSpace = len(charset)
+    #charSpace = len(charset)
     password = generate_password(length, charset)
     
+    #with open("AllChar.txt", "a") as f:
+    #    f.write(password)
+    #    f.write("\n")
+
     #print(f"Entropy is: {log2(charSpace**length)}")
-    print(f"Generated password is: {password}")
+    #print(f"Generated password is: {password}")
 
 if __name__ == "__main__":
     main()

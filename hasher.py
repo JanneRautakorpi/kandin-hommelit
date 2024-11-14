@@ -1,23 +1,35 @@
 import hashlib
 
+def sha256hasher(data, outfile=None):
+    updateData = data.encode('utf-8')
+    hash_obj = hashlib.sha3_256()
+    hash_obj.update(updateData)
+    hexHash = hash_obj.hexdigest()
+    try:
+        with open(outfile, 'a') as file:
+            outfile.write(hexHash + '\n')
+    except IOError:
+        print(f"Tiedoston lukemisessa tapahtui virhe.")
 
-def md5Hasher(text, output_filename="AllCharHASH.txt"):
+def md5Hasher(text, output_filename=None):
     md5 = hashlib.md5()
     md5.update(text.encode('utf-8'))
     md5_hash = md5.hexdigest()
-    with open(output_filename, 'a') as file:
+    with open(output_filename, 'a') as file:git
         file.write(md5_hash + '\n')
-    
-    #print(f"MD5-tiiviste '{md5_hash}' tallennettu tiedostoon '{output_filename}'.")
+
 
 def getText(input_filename):
     try:
         with open(input_filename, 'r') as file:
             for line in file:
-                md5Hasher(line.strip())
+                #md5Hasher(line.strip())
+                sha256hasher(line.strip(), "SHAhashes.txt")
     except FileNotFoundError:
         print(f"Tiedostoa '{input_filename}' ei löytynyt.")
     except IOError:
         print(f"Tiedoston '{input_filename}' lukemisessa tapahtui virhe.")
 
 getText("AllChar.txt")
+getText("alphaCaps.txt")
+getText("numbers.txt")

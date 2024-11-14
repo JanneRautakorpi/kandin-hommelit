@@ -15,7 +15,7 @@ def md5Hasher(text, output_filename=None):
     md5 = hashlib.md5()
     md5.update(text.encode('utf-8'))
     md5_hash = md5.hexdigest()
-    with open(output_filename, 'a') as file:git
+    with open(output_filename, 'a') as file:
         file.write(md5_hash + '\n')
 
 

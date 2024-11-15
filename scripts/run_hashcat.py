@@ -5,6 +5,18 @@ import subprocess
 import time
 
 def run_hashcat(hash_type, hash_file, wordlist, timeout):
+    """
+    Implements timeout feature for Hashcat.
+
+    Args:
+        hash_type (bool): Specifies hash type for Hashcat.
+        hash_file (bool): File where hash locates.
+        wordlist (_type_): Wordlist to use for dictionary attack.
+        timeout (_type_): Timeout in seconds.
+
+    Returns:
+        None
+    """    
     try:
         result = subprocess.run(
             ["hashcat", "-m", str(hash_type), "-a", "0", "-r", "extended-leet.rule", hash_file, wordlist],

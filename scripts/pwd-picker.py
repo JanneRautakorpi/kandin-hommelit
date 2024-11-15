@@ -2,6 +2,10 @@ import random
 import argparse
 
 def randomPick():
+    """
+    Command-line application which loads given password list and uses Python's random module
+    to randomly pick one. 
+    """
     parser = argparse.ArgumentParser()
     parser.add_argument("--input", type=str, help="Input file.", required=True)
     parser.add_argument("--output", type=str, help="Output file", required=False)

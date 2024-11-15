@@ -2,6 +2,16 @@ import random
 from math import log2
 
 def generate_password(length, charset):
+    """
+    Generates a pseudorandom password.
+
+    Args:
+        length (_type_): password length
+        charset (_type_): charset to use for the password
+
+    Returns:
+        None
+    """    
     return ''.join(random.choice(charset) for _ in range(length))
 
 def main():

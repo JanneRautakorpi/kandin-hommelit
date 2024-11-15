@@ -1,6 +1,13 @@
 import hashlib
 
 def sha256hasher(data, outfile=None):
+    """
+    Creates a SHA3-256 hash for given data.
+
+    Args:
+        data str: string to hash
+        outfile (.txt preferably): where to output hash(es). Defaults to None.
+    """    
     updateData = data.encode('utf-8')
     hash_obj = hashlib.sha3_256()
     hash_obj.update(updateData)
@@ -12,6 +19,13 @@ def sha256hasher(data, outfile=None):
         print(f"Tiedoston lukemisessa tapahtui virhe.")
 
 def md5Hasher(text, output_filename=None):
+    """
+    Creates MD5 hash.
+
+    Args:
+        text str: string to hash.
+        output_filename (.txt, optional): output file for hash(es). Defaults to None.
+    """    
     md5 = hashlib.md5()
     md5.update(text.encode('utf-8'))
     md5_hash = md5.hexdigest()

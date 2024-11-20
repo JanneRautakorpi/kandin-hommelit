@@ -1,6 +1,7 @@
 import hashlib
 import os 
 import whirlpool
+import bcrypt
 
 def sha256hasher(data, outfile=None):
     """
@@ -49,6 +50,17 @@ def whirlpooler(input):
     with open("whirlpool.hash", "a") as file:
         file.write(hash + "\n")
 
+def bcrypter(input):
+    string = input.encode('utf-8')
+    rounds = 10
+
+    salt = bcrypt.gensalt(rounds=rounds)
+    hash = bcrypt.hashpw(string, salt)
+    hashedPassword = hash.decode('utf-8')
+    #print(hashedPassword)
+    with open("bcrypt.hash", "a") as file:
+        file.write(hashedPassword + "\n")
+
 
 def getText(input_filename):
     """
@@ -62,7 +74,8 @@ def getText(input_filename):
             for line in file:
                 #md5Hasher(line.strip())
                 #sha256hasher(line.strip(), "SHAhashes.txt")
-                whirlpooler(line.strip())
+                #whirlpooler(line.strip())
+                bcrypter(line.strip())
 
     except FileNotFoundError:
         print(f"Tiedostoa '{input_filename}' ei löytynyt.")

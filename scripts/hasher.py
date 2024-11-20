@@ -35,6 +35,13 @@ def md5Hasher(text, output_filename=None):
         file.write(md5_hash + '\n')
 
 def whirlpooler(input):
+    """
+    Uses Whirlpool hash algorithm to hash passwords.
+
+    Args:
+        input (str): string to be hashes
+    """    
+    
     string = input.encode('utf-8')
     wp = whirlpool.new(string)
     hash = wp.hexdigest()

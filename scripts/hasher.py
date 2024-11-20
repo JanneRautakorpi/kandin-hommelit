@@ -1,4 +1,6 @@
 import hashlib
+import os 
+import whirlpool
 
 def sha256hasher(data, outfile=None):
     """
@@ -32,18 +34,34 @@ def md5Hasher(text, output_filename=None):
     with open(output_filename, 'a') as file:
         file.write(md5_hash + '\n')
 
+def whirlpooler(input):
+    string = input.encode('utf-8')
+    wp = whirlpool.new(string)
+    hash = wp.hexdigest()
+
+    with open("whirlpool.hash", "a") as file:
+        file.write(hash + "\n")
+
 
 def getText(input_filename):
     try:
         with open(input_filename, 'r') as file:
             for line in file:
                 #md5Hasher(line.strip())
-                sha256hasher(line.strip(), "SHAhashes.txt")
+                #sha256hasher(line.strip(), "SHAhashes.txt")
+                whirlpooler(line.strip())
+
     except FileNotFoundError:
         print(f"Tiedostoa '{input_filename}' ei löytynyt.")
     except IOError:
         print(f"Tiedoston '{input_filename}' lukemisessa tapahtui virhe.")
 
-getText("AllChar.txt")
-getText("alphaCaps.txt")
-getText("numbers.txt")
+
+#getText("AllChar.txt")
+#etText("alphaCaps.txt")
+#getText("numbers.txt")
+
+current_dir = os.path.dirname(os.path.abspath(__file__))
+ordlista = os.path.join(current_dir, "../datasets/ordlista.txt")
+
+getText(ordlista)

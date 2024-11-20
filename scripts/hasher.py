@@ -51,6 +51,12 @@ def whirlpooler(input):
 
 
 def getText(input_filename):
+    """
+    Goes through password list and then hashes each password.
+
+    Args:
+        input_filename (str): password list to take passwords from
+    """    
     try:
         with open(input_filename, 'r') as file:
             for line in file:

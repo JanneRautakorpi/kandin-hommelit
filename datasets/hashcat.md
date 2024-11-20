@@ -9,8 +9,8 @@ hashcat -a 3 -m 3200 AllChar.hash "?3?3?3?3?3?3" --custom-charset3 "?a"
  
 
 **dictionary attack** \
-Komennot toteutuksen toiselle osiolle. \
+Komennot toteutuksen toiselle osiolle.
 
 hashcat -a 0 -m 3200 bcrypt.hash passlist.txt \
-hashcat -a 0 -m 6100 whirlpool.hash passlist.txt \ 
+hashcat -a 0 -m 6100 whirlpool.hash passlist.txt \
 hashcat -a 0 -m 17300 sha3-256.hash passlist.txt

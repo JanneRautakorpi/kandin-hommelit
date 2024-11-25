@@ -11,6 +11,6 @@ hashcat -a 3 -m 3200 AllChar.hash "?3?3?3?3?3?3" --custom-charset3 "?a"
 **dictionary attack** \
 Komennot toteutuksen toiselle osiolle.
 
-hashcat -a 0 -m 3200 -r best64.rule bcrypt.hash passlist.txt \ 
+hashcat -a 0 -m 3200 -r best64.rule bcrypt.hash passlist.txt \
 hashcat -a 0 -m 6100 -r best64.rule whirlpool.hash passlist.txt \
 hashcat -a 0 -m 17300 -r best64.rule sha3-256.hash passlist.txt
